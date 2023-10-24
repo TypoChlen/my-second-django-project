@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Registration Form Design | CodeLab</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'registration/css/style.css' %}">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+            Registration Form
+         </div>
+         <form method="post">
+            {% csrf_token %}
+            {{ from.as_p}}
+            <div class="field">
+               <input type="text" name="username" required>
+               <label>Username</label>
+            </div>
+            <div class="field">
+               <input type="text" name="email" required>
+               <label>Email Address</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password1" required>
+               <label>Password</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password2" required>
+               <label>Confirm Password</label>
+            </div>
+            <div class="field">
+               <input type="submit" value="Register">
+            </div>
+            {{ form.errors }}
+         </form>
+         <div class="signup-link">
+            Already a member? <a href="{% url 'login' %}">Login now</a>
+         </div>
+      </div>
+   </body>
+</html>

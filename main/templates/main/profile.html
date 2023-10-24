@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/20ac2150ab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
+    <title>Profile</title>
+    <style>
+        body {
+            background-image: url('{% static 'profile/img/wallpaperflare.com_wallpaper (17).jpg' %}');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="{% static 'profile/img/darth_vader.jpg' %}" alt="Vader" style="width:100%">
+        <h1>{{ user.username }}</h1>
+        <p class="title">The best person who ever existed</p>
+        <p>as part of the galactic senate</p>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <p><button onclick="location.href='{% url 'logout' %}?next=/profile'">Logout</button></p>
+        <p><button onclick="location.href='{% url 'password_change' %}'">Change Password</button></p>
+        <a href="{% url 'home' %}" class="white-link"><li><i class="fa-solid fa-house"></i> Home</a>
+      </div>
+</body>
+</html>
